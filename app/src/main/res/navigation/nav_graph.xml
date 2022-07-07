@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/my_nav"
+            app:startDestination="@id/itemsFragment">
+    <fragment android:id="@+id/itemsFragment" android:name="com.oe.saleclient.fragment.ItemsFragment"
+              android:label="Items" tools:layout="@layout/items_fragment">
+        <action android:id="@+id/action_itemsFragment_to_controlFragment" app:destination="@id/controlFragment"
+                app:enterAnim="@anim/from_right" app:exitAnim="@anim/to_left" app:popEnterAnim="@anim/from_left"
+                app:popExitAnim="@anim/to_right"/>
+        <action android:id="@+id/action_itemsFragment_to_addItemFragment" app:destination="@id/addItemFragment"
+                app:enterAnim="@anim/from_right" app:exitAnim="@anim/to_left" app:popEnterAnim="@anim/from_left"
+                app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment android:id="@+id/controlFragment" android:name="com.oe.saleclient.fragment.ControlFragment"
+              android:label="Control" tools:layout="@layout/control_fragment">
+        <action android:id="@+id/action_controlFragment_to_itemsFragment" app:destination="@id/itemsFragment"
+                app:enterAnim="@anim/from_left" app:exitAnim="@anim/to_right" app:popUpTo="@id/itemsFragment"
+                app:popUpToInclusive="true"/>
+        <argument android:name="position" app:argType="integer" android:defaultValue="0"/>
+    </fragment>
+    <fragment android:id="@+id/addItemFragment" android:name="com.oe.saleclient.fragment.AddItemFragment"
+              android:label="Add Item" tools:layout="@layout/additem_fragment">
+        <action android:id="@+id/action_addItemFragment_to_itemsFragment" app:destination="@id/itemsFragment"
+                app:enterAnim="@anim/from_left" app:exitAnim="@anim/to_right" app:popUpTo="@id/itemsFragment"
+                app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>

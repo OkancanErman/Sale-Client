@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewmodel"
+                type="com.oe.saleclient.ui.viewmodels.ItemsViewModel"/>
+    </data>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/id"
+                        android:text="@{viewmodel.currentItem.id}"
+                        android:textColor="@color/primaryTextColor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center"
+                        android:maxLines="1"/>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginHorizontal="10dp"
+                              android:orientation="horizontal">
+                    <TextView
+                            android:id="@+id/itemNameLabel"
+                            android:text="Item Name "
+                            android:textColor="@color/primaryTextColor"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:maxLines="1"
+                            android:gravity="center"/>
+                    <EditText
+                            android:id="@+id/itemName"
+                            android:text=""
+                            android:textColor="@color/primaryTextColor"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="15dp"
+                            android:maxLines="1"
+                            android:inputType="text"
+                            android:hint="Item Name"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginHorizontal="10dp"
+                              android:orientation="horizontal">
+                    <TextView
+                            android:id="@+id/itemPriceLabel"
+                            android:text="Item Price "
+                            android:textColor="@color/primaryTextColor"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:maxLines="1"
+                            android:gravity="center"/>
+                    <EditText
+                            android:id="@+id/itemPrice"
+                            android:text="9.90"
+                            android:textColor="@color/primaryTextColor"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="15dp"
+                            android:maxLines="1"
+                            android:inputType="text"
+                            android:hint="Item Price"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginHorizontal="10dp"
+                              android:orientation="horizontal">
+                    <TextView
+                            android:id="@+id/itemVatLabel"
+                            android:text="Item Vat "
+                            android:textColor="@color/primaryTextColor"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:maxLines="1"
+                            android:gravity="center"/>
+                    <EditText
+                            android:id="@+id/itemVat"
+                            android:text="13"
+                            android:textColor="@color/primaryTextColor"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="15dp"
+                            android:maxLines="1"
+                            android:inputType="text"
+                            android:hint="Item Vat"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginHorizontal="10dp"
+                              android:orientation="horizontal">
+                    <TextView
+                            android:id="@+id/itemBarcodeLabel"
+                            android:text="Item Barcode "
+                            android:textColor="@color/primaryTextColor"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:maxLines="1"
+                            android:gravity="center"/>
+                    <EditText
+                            android:id="@+id/itemBarcode"
+                            android:text=""
+                            android:textColor="@color/primaryTextColor"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="15dp"
+                            android:maxLines="1"
+                            android:inputType="text"
+                            android:hint="Item Barcode"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical"
+                              android:layout_gravity="center"
+                              android:layout_marginTop="40dp">
+                    <Button
+                            android:id="@+id/buttonAdd"
+                            android:text="Add Item"
+                            android:onClick="@{(v) -> viewmodel.addItem(itemName, itemPrice, itemVat, itemBarcode)}"
+                            android:drawableLeft="@drawable/ic_baseline_add_24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ProgressBar
+                    android:id="@+id/progressBarAdd"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</layout>
